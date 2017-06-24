@@ -126,6 +126,20 @@
 					<scanIntervalSeconds>2</scanIntervalSeconds>
 				</configuration>
 			</plugin>
+			
+			<!-- prueba agregar covertura en jenkins -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+					<artifactId>cobertura-maven-plugin</artifactId>
+					<version>2.5.1</version>
+					<configuration>
+						<formats>
+							<format>html</format>
+							<format>xml</format>
+						</formats>
+					</configuration>
+			</plugin>
+			
 		</plugins>
 	</build>
 
