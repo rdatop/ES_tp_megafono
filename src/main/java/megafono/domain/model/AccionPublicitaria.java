@@ -1,5 +1,7 @@
 package megafono.domain.model;
 
-public class AccionPublicitaria {
+public abstract class  AccionPublicitaria {
+	
+	public abstract void ejecutar();
 
 }
