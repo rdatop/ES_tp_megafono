@@ -1,5 +1,6 @@
-package megafono.services;
+package megafono.mainclass;
 
+import megafono.services.EmailSenderService;
 
 public class pruebaEnvioMain {
 	public static void main(String[] args) {
