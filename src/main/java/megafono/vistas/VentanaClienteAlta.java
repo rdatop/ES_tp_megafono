@@ -3,15 +3,12 @@ package megafono.vistas;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Notification;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Notification.Type;
 
-import megafono.domain.model.Cliente;
 import megafono.services.ClienteServices;
 
 public class VentanaClienteAlta extends HorizontalLayout implements View {
@@ -38,9 +35,6 @@ public class VentanaClienteAlta extends HorizontalLayout implements View {
 		final PasswordField claveCliente = new PasswordField("Ingrese su clave");
 		columna.addComponent(claveCliente);
 
-		VerticalLayout botones = new VerticalLayout();
-		addComponent(botones);
-
 		Button guardarCliente = new Button("Guardar");
 		guardarCliente.addClickListener(new Button.ClickListener() {
 			/**
@@ -50,14 +44,10 @@ public class VentanaClienteAlta extends HorizontalLayout implements View {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				Cliente myCliente = new Cliente(nombreCliente.getValue(), usuarioCliente.getValue(),
-						claveCliente.getValue(), correoCliente.getValue());
-				clienteService.guardar(myCliente);
-				Notification.show("Ha generado su usuario satisfactoriamente", Type.TRAY_NOTIFICATION);
-
+				clienteService.gestionarAltas(nombreCliente, usuarioCliente, claveCliente, correoCliente);
 			}
 		});
-		botones.addComponent(guardarCliente);
+		addComponent(guardarCliente);
 
 	}
 
