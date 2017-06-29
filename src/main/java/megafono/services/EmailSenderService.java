@@ -14,18 +14,15 @@ import javax.mail.internet.MimeMultipart;
 
 public class EmailSenderService {
 
-//	private String usuario = "megafonoES@gmail.com";
-//	private String contraseña = "megafonoES2017";
-	
-	private String usuario = "darivas1978@gmail.com";
-	private String contraseña = "benjamino";
+	private String usuario = "megafonomarketingdigital@gmail.com";
+	private String contraseña = "megafonoES2017";
 
-	// Envia un email a partir de una propiertie de configuracion con
-	// verificacion de envio
+	// Envia un email a partir de una propiertie 
+	// de configuracion con y verificacion de envio
 	public boolean enviarEmail(String destinatario, String mensaje, String asunto, String archivo) {
 		boolean enviado = false;
 		try {
-			Session session = Session.getInstance(propiedades(this.usuario, this.contraseña), null);// properties
+			Session session = Session.getInstance(propiedades(this.usuario, this.contraseña), null);
 
 			// se compone la parte del texto
 			BodyPart texto = new MimeBodyPart();
@@ -56,7 +53,7 @@ public class EmailSenderService {
 			enviado = true;
 
 			// TODO verificacion consola (borrarlo)
-			System.out.print("mensaje enviado " + enviado);
+			System.out.print("mensaje enviado a " +destinatario+" "+ enviado);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

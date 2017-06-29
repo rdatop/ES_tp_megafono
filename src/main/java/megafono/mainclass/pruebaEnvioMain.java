@@ -5,7 +5,7 @@ import megafono.services.EmailSenderService;
 public class pruebaEnvioMain {
 	public static void main(String[] args) {
 
-		String destinatario="ezzemontoya@outlook.com";
+		String destinatario="ezzemontoya@outlook.com";//rdatop@yahoo.com.ar
 		String asunto="usuario hardcordeado";
 		String texto="Hola prueba";
 		String archivo="Envio eMails.zipp";
