@@ -30,12 +30,13 @@ public class mainUI extends UI {
 		
 		
 		Navigator navigator;
-//		navigator = new Navigator(this, new VentanaPrincipal());
 		navigator = new Navigator(this, this);
 		// Y creamos y registramos las views (pantallas)
-		navigator.addView(VentanaTagsAgregar.NAME, new VentanaTagsAgregar());
-		navigator.addView(VentanaTagsBorrar.NAME, new VentanaTagsBorrar());
+		navigator.addView(VentanaPrincipal.NAME, new VentanaPrincipal());
+		navigator.addView(VentanaTagAlta.NAME, new VentanaTagAlta());
+		navigator.addView(VentanaTagBaja.NAME, new VentanaTagBaja());
 		navigator.addView(VentanaClienteAlta.NAME, new VentanaClienteAlta());
+		navigator.addView(VentanaCampañaAlta.NAME, new VentanaCampañaAlta());
 		
 
 	}

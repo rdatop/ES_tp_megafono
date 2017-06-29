@@ -3,7 +3,6 @@ package megafono.domain.model;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 public class Campaña implements Serializable {
@@ -16,8 +15,8 @@ public class Campaña implements Serializable {
 	private Cliente generador;
 	private ArrayList<Tag> tags;
 	private ArrayList<AccionPublicitariaPersonalizada> accionesPublicitarias;
-	private String fechaInicio;
-	private String fechaFin;
+	private Date fechaInicio;
+	private Date fechaFin;
 	private static SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
 	private Duracion duracion;
 	private Periodicidad periodicidad;
@@ -28,7 +27,7 @@ public class Campaña implements Serializable {
 	// TODO - falta agregar que guarde la imagen junto con el mensaje de la
 	// camapaña para enviarlo en la accion publicitaria
 
-	public Campaña(Cliente cliente) {
+	public Campaña(Cliente cliente, Date fechaInicio) {
 		this.generador = cliente;
 		this.tags = new ArrayList<Tag>();
 		this.accionesPublicitarias = new ArrayList<AccionPublicitariaPersonalizada>();
@@ -37,7 +36,8 @@ public class Campaña implements Serializable {
 		this.periodicidad = null;
 		this.nombre = "";
 		this.mensaje = "";
-		this.fechaInicio = formato.format(new Date());
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = new Date(); //TODO - calcular la fecha fin en base a la fecha de inicio mas la duracion.
 	}
 
 	public ArrayList<AccionPublicitariaPersonalizada> getAccionesPublicitarias() {
@@ -94,6 +94,15 @@ public class Campaña implements Serializable {
 
 	public ArrayList<Tag> getTags() {
 		return tags;
+	}
+	
+	public boolean estaVigente(){
+		Date hoy = new Date();
+		if(this.fechaFin.after(hoy)){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 }

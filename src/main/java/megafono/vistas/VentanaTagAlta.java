@@ -12,17 +12,17 @@ import com.vaadin.ui.VerticalLayout;
 
 import megafono.services.TagServices;
 
-public class VentanaTagsAgregar extends HorizontalLayout implements View {
+public class VentanaTagAlta extends HorizontalLayout implements View {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected static final String NAME = "";
+	protected static final String NAME = "agregar tag";
 
 	private TagServices tagService = TagServices.getTagService();
 
-	public VentanaTagsAgregar() {
+	public VentanaTagAlta() {
 		setSizeFull();
 		
 		final Tree arbol = new Tree("Tags");
@@ -63,7 +63,7 @@ public class VentanaTagsAgregar extends HorizontalLayout implements View {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(VentanaTagsBorrar.NAME);
+				getUI().getNavigator().navigateTo(VentanaTagBaja.NAME);
 			}
 		});
 		botones.addComponent(borrar);

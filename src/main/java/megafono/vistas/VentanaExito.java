@@ -13,7 +13,7 @@ public class VentanaExito extends VerticalLayout implements View{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected static final String NAME = "2";
+	protected static final String NAME = "ventana exito";
 
 	public VentanaExito(){
 		setSizeFull();
@@ -31,7 +31,7 @@ public class VentanaExito extends VerticalLayout implements View{
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(VentanaTagsAgregar.NAME);
+				getUI().getNavigator().navigateTo(VentanaTagAlta.NAME);
 			}
 		});
 		botones.addComponent(volver);

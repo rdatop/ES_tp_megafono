@@ -4,19 +4,19 @@ import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.HorizontalLayout;
 
-import megafono.services.ClienteServices;
+import megafono.services.CamapañaServices;
 
-public class VentanaClienteAlta extends HorizontalLayout implements View {
+public class VentanaCampañaAlta extends HorizontalLayout implements View {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected static final String NAME = "alta Cliente";
+	protected static final String NAME = "alta Campaña";
 
-	private ClienteServices clienteService = ClienteServices.getClienteServices();
+	private CamapañaServices campañaService = CamapañaServices.getCampañaServices();
 
-	public VentanaClienteAlta() {
+	public VentanaCampañaAlta() {
 		setSizeFull();
 		
 
