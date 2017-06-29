@@ -30,12 +30,10 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Mis documentos/UNGS/ESPECIFICACION DE SOFT/ES/Tools/neodatis-odb-1.9.30.689.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Mis documentos/UNGS/ESPECIFICACION DE SOFT/TP2017/email/javamail1_4_7/javamail-1.4.7/mail.jar" sourcepath="/Envio eMails"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -1,9 +1,7 @@
 package megafono.mainclass;
 
-import java.util.ArrayList;
-
-import megafono.domain.model.Tag;
-import megafono.services.TagServices;
+import megafono.domain.model.Cliente;
+import megafono.services.ClienteServices;
 
 public class mainClass {
 
@@ -17,13 +15,19 @@ public class mainClass {
 //	 ts.guardar(d);
 //	 }
 
+//	public static void main(String[] args) {
+//		TagServices ts = TagServices.getTagService();
+//		ts.borrar(new Tag ("Futbol"));
+//		ArrayList<Tag> tags = ts.obtenerTags();
+//		for (Tag t : tags){
+//			System.out.println(t.toString());	
+//		}
+//	}
+	
 	public static void main(String[] args) {
-		TagServices ts = TagServices.getTagService();
-		ts.borrar(new Tag ("Futbol"));
-		ArrayList<Tag> tags = ts.obtenerTags();
-		for (Tag t : tags){
-			System.out.println(t.toString());	
-		}
+		Cliente cliente = new Cliente("prueba", "prueba1", "123456", "ezzemontoya@gmail.com");
+		ClienteServices cs = ClienteServices.getClienteServices();
+		cs.guardar(cliente);
 	}
 
 }
