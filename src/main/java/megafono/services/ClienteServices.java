@@ -55,6 +55,12 @@ public class ClienteServices {
 		Cliente myCliente = new Cliente(nombreCliente.getValue(), usuarioCliente.getValue(), claveCliente.getValue(),
 				correoCliente.getValue());
 		this.guardar(myCliente);
+		
+		nombreCliente.setValue("");
+		usuarioCliente.setValue("");
+		claveCliente.setValue("");
+		correoCliente.setValue("");
+		
 		Notification.show("Ha generado su usuario satisfactoriamente", Type.TRAY_NOTIFICATION);
 
 	}

@@ -7,6 +7,7 @@ import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
+import com.vaadin.ui.TextField;
 import com.vaadin.ui.Tree;
 
 import megafono.dao.implementacion.TagDAONeodatis;
@@ -65,7 +66,8 @@ public class TagServices {
 		}
 	}
 
-	public void gestionarAltas(Tree arbol, String tag, ComboBox cb) {
+	public void gestionarAltas(Tree arbol, TextField tagTF, ComboBox cb) {
+		String tag = tagTF.getValue();
 		String superior = "";
 		try {
 			superior = cb.getValue().toString();
@@ -84,6 +86,8 @@ public class TagServices {
 		}
 		if (superior != "" && tag != "") {
 			this.guardar(new Tag(tag, this.obtenerTag(superior)));
+			tagTF.clear();
+			cb.clear();
 			Notification.show("Se guardo el tag: " + tag + " en: " + superior, Type.TRAY_NOTIFICATION);
 		}
 		this.procesarArbol(arbol, cb);
@@ -97,7 +101,8 @@ public class TagServices {
 		System.out.println(cb.getValue().toString());
 		String aBorrar = cb.getValue().toString();
 		this.borrar(this.obtenerTag(aBorrar));
-		Notification.show("Se borr� el tag: " + aBorrar, Type.TRAY_NOTIFICATION);
+		cb.clear();
+		Notification.show("Se borro el tag: " + aBorrar, Type.TRAY_NOTIFICATION);
 		this.procesarArbol(arbol, cb);
 	}
 

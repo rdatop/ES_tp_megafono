@@ -61,6 +61,14 @@ public class CamapañaServices {
 		}
 		Campaña myCampaña = new Campaña(cliente, nombreCamapaña.getValue(), 
 				mensajeCampaña.getValue(), fechaCampaña.getValue(), null, null, Duracion.Hora, Periodicidad.Hora);
+		
+		nombreCamapaña.setValue("");
+		mensajeCampaña.setValue("");
+		fechaCampaña.clear();
+		duracion.clear();
+		periodicidad.clear();
+		
+		
 		Notification.show("La campaña ha sigo guardada", Type.TRAY_NOTIFICATION);
 		campañaDAO.guardar(myCampaña);
 		

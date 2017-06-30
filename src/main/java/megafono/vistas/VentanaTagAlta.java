@@ -24,10 +24,10 @@ public class VentanaTagAlta extends HorizontalLayout implements View {
 
 	public VentanaTagAlta() {
 		setSizeFull();
-		
+
 		final Tree arbol = new Tree("Tags");
 		addComponents(arbol);
-		
+
 		VerticalLayout textfiles = new VerticalLayout();
 		addComponent(textfiles);
 		final TextField tag = new TextField("Ingrese el nuevo tag");
@@ -35,8 +35,8 @@ public class VentanaTagAlta extends HorizontalLayout implements View {
 		final ComboBox superior = new ComboBox("Seleccione Tag superior");
 		textfiles.addComponent(superior);
 
-		tagService.procesarArbol(arbol,superior);
-		
+		tagService.procesarArbol(arbol, superior);
+
 		VerticalLayout botones = new VerticalLayout();
 		addComponent(botones);
 
@@ -49,11 +49,11 @@ public class VentanaTagAlta extends HorizontalLayout implements View {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				tagService.gestionarAltas(arbol, tag.getValue(),superior);
+				tagService.gestionarAltas(arbol, tag, superior);
 			}
 		});
 		botones.addComponent(guardarTag);
-		
+
 		Button borrar = new Button("Borrar Tags");
 		borrar.addClickListener(new Button.ClickListener() {
 			/**
