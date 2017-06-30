@@ -51,8 +51,8 @@ public class VentanaAccionPublicitariaPersonalizada extends Window {
 		opciones.addTab(correo, "CORREO", FontAwesome.INBOX);
 		
 		Panel panel = new Panel("Acciones personalizadas");
-		panel.setWidth("50%");
-		panel.setHeight("100%");
+//		panel.setWidth("50%");
+//		panel.setHeight("100%");
 		panel.setContent(opciones);
 		vl.addComponent(panel);
 			

@@ -1,14 +1,11 @@
 package megafono.vistas;
 
-
-
 import java.util.ArrayList;
 
 import com.vaadin.server.FontAwesome;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.TextField;
@@ -25,23 +22,19 @@ public class VentanaAgregarDestinatarios extends Window {
 	public VentanaAgregarDestinatarios(ArrayList<String> destinatarios) {
 		setSizeFull();
 		center();
-		
+
 		VerticalLayout vl = new VerticalLayout();
 		vl.setMargin(true);
-		vl.addComponent(new Label("Ingrese los destinatarios de la cmapaña"));
-		
-		
-		TextField destinatario = new TextField();
+
+		TextField destinatario = new TextField("Ingrese los destinatarios de la cmapaña");
 		destinatario.setRequired(true);
 		destinatario.setIcon(FontAwesome.USER);
 		vl.addComponent(destinatario);
-		
-		
-		
+
 		Button guardar = new Button("Guardar");
 		guardar.setIcon(FontAwesome.SAVE);
 		guardar.addClickListener(new ClickListener() {
-			
+
 			/**
 			 * 
 			 */
@@ -55,14 +48,14 @@ public class VentanaAgregarDestinatarios extends Window {
 			}
 		});
 		vl.addComponent(guardar);
-		
+
 		setContent(vl);
 		setClosable(false);
-		
+
 		Button ok = new Button("Listo");
 		ok.setIcon(FontAwesome.CHECK);
 		ok.addClickListener(new ClickListener() {
-			
+
 			/**
 			 * 
 			 */
@@ -70,7 +63,7 @@ public class VentanaAgregarDestinatarios extends Window {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				close();				
+				close();
 			}
 		});
 		vl.addComponent(ok);

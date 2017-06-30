@@ -33,7 +33,7 @@ public class VentanaCampañaAlta extends HorizontalLayout implements View {
 	private CamapaniaServices campañaService = CamapaniaServices.getCampañaServices();
 	private TagServices tagServices = TagServices.getTagService();
 	private ClienteServices clienteService = ClienteServices.getClienteServices();
-	private ArrayList<String> destinatarios = new ArrayList<String>();
+	private static ArrayList<String> destinatarios = new ArrayList<String>();
 
 	public VentanaCampañaAlta() {
 		setSizeFull();

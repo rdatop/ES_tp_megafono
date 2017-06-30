@@ -19,16 +19,15 @@ public class EmailSenderService {
 	private String usuario = "megafonomarketingdigital@gmail.com";
 	private String contraseña = "megafonoES2017";
 
-	// Envia un email a partir de una propiertie 
+	// Envia un email a partir de una propiertie
 	// de configuracion con y verificacion de envio
-	
-	public boolean enviarMultiMail(ArrayList<String> destinatarios,  String mensaje, String asunto, String archivo){
-		for(String s : destinatarios){
-			return this.enviarEmail(s, mensaje, asunto, archivo);
-		}
-		return false;
+
+	public void enviarMultiMail(ArrayList<String> destinatarios, String mensaje, String asunto, String archivo) {
+		for (String s : destinatarios) {
+				this.enviarEmail(s, mensaje, asunto, archivo);
+			}
 	}
-	
+
 	public boolean enviarEmail(String destinatario, String mensaje, String asunto, String archivo) {
 		boolean enviado = false;
 		try {
@@ -63,7 +62,7 @@ public class EmailSenderService {
 			enviado = true;
 
 			// TODO verificacion consola (borrarlo)
-			System.out.print("\nMensaje enviado a " +destinatario+" "+ enviado);
+			System.out.print("\nMensaje enviado a " + destinatario + " " + enviado);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

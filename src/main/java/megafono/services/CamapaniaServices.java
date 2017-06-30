@@ -69,16 +69,14 @@ public class CamapaniaServices {
 		fechaCampaña.clear();
 		duracion.clear();
 		periodicidad.clear();
-		destinatarios.clear();
-		
 		
 		Notification.show("La campaña ha sigo guardada", Type.TRAY_NOTIFICATION);
 		campañaDAO.guardar(myCampaña);
 		
 	}
-
+	
 	public ArrayList<Campania> getCamapañas() {
-		return campañaDAO.getCampañas();		
+		return campañaDAO.getCampañas();			
 	}
 	
 	public void ejecutar(){
