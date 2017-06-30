@@ -82,6 +82,8 @@ public class TagServices {
 		/** No se ingresa ningun tag **/
 		if (superior == "" && tag != "") {
 			this.guardar(new Tag(tag));
+			tagTF.clear();
+			cb.clear();
 			Notification.show("Se guardo el tag: " + tag, Type.TRAY_NOTIFICATION);
 		}
 		if (superior != "" && tag != "") {
