@@ -1,6 +1,7 @@
 package megafono.mainclass;
 
-import megafono.services.CamapaniaServices;
+import megafono.domain.model.Usuario;
+import megafono.services.UsuarioServices;
 
 public class mainClass {
 
@@ -30,9 +31,15 @@ public class mainClass {
 	// cs.guardar(cliente);
 	// }
 
-	public static void main(String[] args) {
-		CamapaniaServices cs = CamapaniaServices.getCampañaServices();
-		cs.ejecutar();
-	}
+//	public static void main(String[] args) {
+//		CamapaniaServices cs = CamapaniaServices.getCampañaServices();
+//		cs.ejecutar();
+//	}
 
+	public static void main(String[] args) {
+		Usuario user = new Usuario("admin", "admin");
+		UsuarioServices us = UsuarioServices.getusuarioServices();
+		us.guardar(user);
+	}
+	
 }

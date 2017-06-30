@@ -33,7 +33,6 @@ public class Campania implements Serializable {
 		this.tags = new ArrayList<Tag>();
 		this.accionesPublicitarias = new ArrayList<AccionPublicitariaPersonalizada>();
 		this.destinatarios = new ArrayList<String>();
-		// this.destinatario="";
 		this.duracion = null;
 		this.periodicidad = null;
 		this.nombre = "";

@@ -13,7 +13,7 @@ public class VentanaPrincipal extends HorizontalLayout implements View {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected static final String NAME = "";
+	protected static final String NAME = "home";
 
 
 	public VentanaPrincipal() {

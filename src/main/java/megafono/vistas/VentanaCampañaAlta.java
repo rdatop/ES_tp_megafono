@@ -52,10 +52,6 @@ public class VentanaCampañaAlta extends HorizontalLayout implements View {
 		fechaCampaña.setIcon(FontAwesome.CALENDAR);
 		fechaCampaña.setRequired(true);
 		izquierda.addComponent(fechaCampaña);
-
-		HorizontalLayout contenedorTags = new HorizontalLayout();
-		derecha.addComponent(contenedorTags);
-		tagServices.agregarTagsAlCheckbox(contenedorTags);
 		
 		final ComboBox periodicidad = new ComboBox("Seleccione la periodicidad de la campaña");
 		periodicidad.setIcon(FontAwesome.CLOCK_O);
@@ -89,24 +85,7 @@ public class VentanaCampañaAlta extends HorizontalLayout implements View {
 			}
 		});
 		derecha.addComponent(agregarDestinatarios);
-		
-		Button guardarCampaña = new Button("Guardar");
-		guardarCampaña.setIcon(FontAwesome.SAVE);
-		guardarCampaña.addClickListener(new Button.ClickListener() {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void buttonClick(ClickEvent event) {
-				// TODO agregar acciones publicitarias personalizadas
-				campañaService.gestionarAlta(clienteService.getCliente(), nombreCampaña, mensajeCampaña, fechaCampaña,
-						tagServices.getSeleccionados(), duracion, periodicidad, destinatarios);
-			}
-		});
-		derecha.addComponent(guardarCampaña);
-
+				
 		final Button accionPublicitariaPersonalizada = new Button("Crear Accion Personalizada");
 		accionPublicitariaPersonalizada.setIcon(FontAwesome.MAGIC);
 		accionPublicitariaPersonalizada.addClickListener(new ClickListener() {
@@ -124,6 +103,13 @@ public class VentanaCampañaAlta extends HorizontalLayout implements View {
 		});
 		izquierda.addComponent(accionPublicitariaPersonalizada);
 		
+		
+		HorizontalLayout contenedorTags = new HorizontalLayout();
+		izquierda.addComponent(contenedorTags);
+		tagServices.agregarTagsAlCheckbox(contenedorTags);
+		
+		
+		
 		Button home = new Button("HOME");
 		home.setIcon(FontAwesome.HOME);
 		home.addClickListener(new Button.ClickListener() {
@@ -138,6 +124,25 @@ public class VentanaCampañaAlta extends HorizontalLayout implements View {
 			}
 		});
 		addComponent(home);
+		
+		
+		Button guardarCampaña = new Button("Guardar");
+		guardarCampaña.setIcon(FontAwesome.SAVE);
+		guardarCampaña.addClickListener(new Button.ClickListener() {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				// TODO agregar acciones publicitarias personalizadas
+				campañaService.gestionarAlta(clienteService.getCliente(), nombreCampaña, mensajeCampaña, fechaCampaña,
+						tagServices.getSeleccionados(), duracion, periodicidad, destinatarios);
+			}
+		});
+		addComponent(guardarCampaña);
+
 	}
 
 	@Override
