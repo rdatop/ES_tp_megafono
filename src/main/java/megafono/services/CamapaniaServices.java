@@ -85,7 +85,7 @@ public class CamapaniaServices {
 			ArrayList<String> destinatario = c.getDestinatarios();
 			String asunto = c.getNombre();
 			String mensaje = c.getMensaje();
-			meilTx.enviarMultiMail(destinatario, mensaje, asunto, "Envio eMails.zipp");
+			meilTx.enviarMultiMail(destinatario, mensaje, asunto, "Megafono.jpg");
 		}
 	}
 }
