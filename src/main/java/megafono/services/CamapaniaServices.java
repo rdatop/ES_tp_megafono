@@ -7,33 +7,33 @@ import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.TextField;
 
-import megafono.dao.implementacion.CampañaDAONeodatis;
-import megafono.domain.model.Campaña;
+import megafono.dao.implementacion.CampaniaDAONeodatis;
+import megafono.domain.model.Campania;
 import megafono.domain.model.Cliente;
 import megafono.domain.model.Duracion;
 import megafono.domain.model.Periodicidad;
 
-public class CamapañaServices {
+public class CamapaniaServices {
 
-	private CampañaDAONeodatis campañaDAO;
-	private static CamapañaServices CampañaService;
+	private CampaniaDAONeodatis campañaDAO;
+	private static CamapaniaServices CampañaService;
 	
-	private CamapañaServices(){
-		campañaDAO = new CampañaDAONeodatis();
+	private CamapaniaServices(){
+		campañaDAO = new CampaniaDAONeodatis();
 	}
 	
-	public static CamapañaServices getCampañaServices(){
+	public static CamapaniaServices getCampañaServices(){
 		if(CampañaService == null){
-			CampañaService = new CamapañaServices();
+			CampañaService = new CamapaniaServices();
 		}
 		return CampañaService;
 	}
 	
-	public void guardar (Campaña campaña){
+	public void guardar (Campania campaña){
 		campañaDAO.guardar(campaña);
 	}
 	
-	public void borrar (Campaña campaña){
+	public void borrar (Campania campaña){
 		campañaDAO.borrar(campaña);
 	}
 
@@ -59,7 +59,7 @@ public class CamapañaServices {
 			Notification.show("Seleccione la periodicidad de ejecicion de la campaña", Type.TRAY_NOTIFICATION);
 			return;
 		}
-		Campaña myCampaña = new Campaña(cliente, nombreCamapaña.getValue(), 
+		Campania myCampaña = new Campania(cliente, nombreCamapaña.getValue(), 
 				mensajeCampaña.getValue(), fechaCampaña.getValue(), null, null, Duracion.Hora, Periodicidad.Hora);
 		
 		nombreCamapaña.setValue("");

@@ -7,13 +7,13 @@ import org.neodatis.odb.core.query.IQuery;
 import org.neodatis.odb.core.query.criteria.Where;
 import org.neodatis.odb.impl.core.query.criteria.CriteriaQuery;
 
-import megafono.dao.CampañaDAO;
-import megafono.domain.model.Campaña;
+import megafono.dao.CampaniaDAO;
+import megafono.domain.model.Campania;
 import megafono.domain.model.Cliente;
 
-public class CampañaDAONeodatis extends DAONeodatis<Campaña> implements CampañaDAO  {
+public class CampaniaDAONeodatis extends DAONeodatis<Campania> implements CampaniaDAO  {
 
-	public void guardar(Campaña campaña) {
+	public void guardar(Campania campaña) {
 		ODB odb = null;
 		try {
 			odb = ODBFactory.open("campañas");
@@ -27,7 +27,7 @@ public class CampañaDAONeodatis extends DAONeodatis<Campaña> implements Campa�
 		}
 	}
 	
-	public void borrar(Campaña campaña) {
+	public void borrar(Campania campaña) {
 		ODB odb = null;
 		try {
 			odb = ODBFactory.open("campaña");

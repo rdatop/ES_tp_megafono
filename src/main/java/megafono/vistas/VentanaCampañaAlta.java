@@ -4,17 +4,19 @@ import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.TextField;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.Button.ClickEvent;
 
 import megafono.domain.model.Duracion;
 import megafono.domain.model.Periodicidad;
-import megafono.services.CamapañaServices;
+import megafono.services.CamapaniaServices;
 import megafono.services.ClienteServices;
 import megafono.services.TagServices;
 
@@ -26,7 +28,7 @@ public class VentanaCampañaAlta extends HorizontalLayout implements View {
 	private static final long serialVersionUID = 1L;
 	protected static final String NAME = "alta Campaña";
 
-	private CamapañaServices campañaService = CamapañaServices.getCampañaServices();
+	private CamapaniaServices campañaService = CamapaniaServices.getCampañaServices();
 	private TagServices tagServices = TagServices.getTagService();
 	private ClienteServices clienteService = ClienteServices.getClienteServices();
 
@@ -91,6 +93,23 @@ public class VentanaCampañaAlta extends HorizontalLayout implements View {
 		});
 		derecha.addComponent(guardarCampaña);
 
+		final Button accionPublicitariaPersonalizada = new Button("Crear Accion Personalizada");
+		accionPublicitariaPersonalizada.setIcon(FontAwesome.MAGIC);
+		accionPublicitariaPersonalizada.addClickListener(new ClickListener() {
+			
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().addWindow(new VentanaAccionPublicitariaPersonalizada());
+				
+			}
+		});
+		izquierda.addComponent(accionPublicitariaPersonalizada);
+		
 		Button home = new Button("HOME");
 		home.setIcon(FontAwesome.HOME);
 		home.addClickListener(new Button.ClickListener() {

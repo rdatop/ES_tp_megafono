@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Campaña implements Serializable {
+public class Campania implements Serializable {
 
 	/**
 	 * 
@@ -26,7 +26,7 @@ public class Campaña implements Serializable {
 	// TODO - falta agregar que guarde la imagen junto con el mensaje de la
 	// camapaña para enviarlo en la accion publicitaria
 
-	public Campaña(Cliente cliente, Date fechaInicio) {
+	public Campania(Cliente cliente, Date fechaInicio) {
 		this.generador = cliente;
 		this.tags = new ArrayList<Tag>();
 		this.accionesPublicitarias = new ArrayList<AccionPublicitariaPersonalizada>();
@@ -40,7 +40,7 @@ public class Campaña implements Serializable {
 									// fecha de inicio mas la duracion.
 	}
 	
-	public Campaña(Cliente cliente, String nombre, String mensaje, Date fechaInicio, ArrayList<Tag> tags,
+	public Campania(Cliente cliente, String nombre, String mensaje, Date fechaInicio, ArrayList<Tag> tags,
 			ArrayList<Destinatario> destinatarios, Duracion duracion, Periodicidad periodicidad) {
 		this.generador = cliente;
 		this.tags = tags;
