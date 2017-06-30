@@ -18,7 +18,7 @@ import com.vaadin.ui.VerticalLayout;
 
 import megafono.domain.model.Duracion;
 import megafono.domain.model.Periodicidad;
-import megafono.services.CamapaniaServices;
+import megafono.services.CampaniaServices;
 import megafono.services.ClienteServices;
 import megafono.services.TagServices;
 
@@ -30,7 +30,7 @@ public class VentanaCampañaAlta extends HorizontalLayout implements View {
 	private static final long serialVersionUID = 1L;
 	protected static final String NAME = "alta Campaña";
 
-	private CamapaniaServices campañaService = CamapaniaServices.getCampañaServices();
+	private CampaniaServices campañaService = CampaniaServices.getCampañaServices();
 	private TagServices tagServices = TagServices.getTagService();
 	private ClienteServices clienteService = ClienteServices.getClienteServices();
 	private static ArrayList<String> destinatarios = new ArrayList<String>();

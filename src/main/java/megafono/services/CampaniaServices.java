@@ -15,18 +15,18 @@ import megafono.domain.model.Cliente;
 import megafono.domain.model.Duracion;
 import megafono.domain.model.Periodicidad;
 
-public class CamapaniaServices {
+public class CampaniaServices {
 
 	private CampaniaDAONeodatis campañaDAO;
-	private static CamapaniaServices CampañaService;
+	private static CampaniaServices CampañaService;
 	
-	private CamapaniaServices(){
+	private CampaniaServices(){
 		campañaDAO = new CampaniaDAONeodatis();
 	}
 	
-	public static CamapaniaServices getCampañaServices(){
+	public static CampaniaServices getCampañaServices(){
 		if(CampañaService == null){
-			CampañaService = new CamapaniaServices();
+			CampañaService = new CampaniaServices();
 		}
 		return CampañaService;
 	}

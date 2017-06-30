@@ -1,6 +1,6 @@
 package megafono.mainclass;
 
-import megafono.services.CamapaniaServices;
+import megafono.services.CampaniaServices;
 
 public class mainClass {
 
@@ -9,7 +9,7 @@ public class mainClass {
 //		UsuarioServices us = UsuarioServices.getusuarioServices();
 //		us.guardar(user);
 
-		CamapaniaServices cs = CamapaniaServices.getCampañaServices();
+		CampaniaServices cs = CampaniaServices.getCampañaServices();
 		cs.ejecutar();
 	}
 	
