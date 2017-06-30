@@ -2,6 +2,7 @@ package megafono.vistas;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.FontAwesome;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.ComboBox;
@@ -41,6 +42,7 @@ public class VentanaTagAlta extends HorizontalLayout implements View {
 		addComponent(botones);
 
 		Button guardarTag = new Button("Guardar");
+		guardarTag.setIcon(FontAwesome.SAVE);
 		guardarTag.addClickListener(new Button.ClickListener() {
 			/**
 			 * 
@@ -55,6 +57,7 @@ public class VentanaTagAlta extends HorizontalLayout implements View {
 		botones.addComponent(guardarTag);
 
 		Button borrar = new Button("Borrar Tags");
+		borrar.setIcon(FontAwesome.STOP);
 		borrar.addClickListener(new Button.ClickListener() {
 			/**
 			 * 
@@ -67,6 +70,21 @@ public class VentanaTagAlta extends HorizontalLayout implements View {
 			}
 		});
 		botones.addComponent(borrar);
+		
+		Button home = new Button("HOME");
+		home.setIcon(FontAwesome.HOME);
+		home.addClickListener(new Button.ClickListener() {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				getUI().getNavigator().navigateTo(VentanaPrincipal.NAME);
+			}
+		});
+		addComponent(home);
 	}
 
 	@Override

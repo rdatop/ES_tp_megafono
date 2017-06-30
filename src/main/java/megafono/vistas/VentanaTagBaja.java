@@ -2,6 +2,7 @@ package megafono.vistas;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.FontAwesome;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.ComboBox;
@@ -38,6 +39,7 @@ public class VentanaTagBaja extends HorizontalLayout implements View {
 		addComponent(botones);
 
 		Button borrarTag = new Button("Borrar");
+		borrarTag.setIcon(FontAwesome.STOP);
 		borrarTag.addClickListener(new Button.ClickListener() {
 			/**
 			 * 
@@ -51,8 +53,9 @@ public class VentanaTagBaja extends HorizontalLayout implements View {
 		});
 		botones.addComponent(borrarTag);
 
-		Button volver = new Button("Volver");
-		volver.addClickListener(new Button.ClickListener() {
+		Button agregarTag = new Button("Agregar Tag");
+		agregarTag.setIcon(FontAwesome.TAG);
+		agregarTag.addClickListener(new Button.ClickListener() {
 			/**
 			 * 
 			 */
@@ -63,7 +66,22 @@ public class VentanaTagBaja extends HorizontalLayout implements View {
 				getUI().getNavigator().navigateTo(VentanaTagAlta.NAME);
 			}
 		});
-		botones.addComponent(volver);
+		botones.addComponent(agregarTag);
+		
+		Button home = new Button("HOME");
+		home.setIcon(FontAwesome.HOME);
+		home.addClickListener(new Button.ClickListener() {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				getUI().getNavigator().navigateTo(VentanaPrincipal.NAME);
+			}
+		});
+		addComponent(home);
 	}
 
 	@Override

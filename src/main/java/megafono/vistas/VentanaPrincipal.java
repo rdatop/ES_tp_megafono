@@ -2,6 +2,7 @@ package megafono.vistas;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.FontAwesome;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.HorizontalLayout;
@@ -22,6 +23,7 @@ public class VentanaPrincipal extends HorizontalLayout implements View {
 		addComponent(contenedorBotones);
 		
 		Button altaCliente= new Button("Crear Cliente");
+		altaCliente.setIcon(FontAwesome.USER);
 		altaCliente.addClickListener(new Button.ClickListener() {
 			/**
 			 * 
@@ -37,6 +39,7 @@ public class VentanaPrincipal extends HorizontalLayout implements View {
 		
 
 		Button altaCampaña= new Button("Crear Campaña");
+		altaCampaña.setIcon(FontAwesome.SUN_O);
 		altaCampaña.addClickListener(new Button.ClickListener() {
 			/**
 			 * 
@@ -51,6 +54,7 @@ public class VentanaPrincipal extends HorizontalLayout implements View {
 		contenedorBotones.addComponent(altaCampaña);
 		
 		Button altaTag= new Button("Crear Tag");
+		altaTag.setIcon(FontAwesome.TAG);
 		altaTag.addClickListener(new Button.ClickListener() {
 			/**
 			 * 
@@ -65,6 +69,7 @@ public class VentanaPrincipal extends HorizontalLayout implements View {
 		contenedorBotones.addComponent(altaTag);
 		
 		Button bajaTag= new Button("Borrar Tag");
+		bajaTag.setIcon(FontAwesome.TAG);
 		bajaTag.addClickListener(new Button.ClickListener() {
 			/**
 			 * 
