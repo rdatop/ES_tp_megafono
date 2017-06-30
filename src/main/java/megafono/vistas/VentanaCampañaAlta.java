@@ -105,7 +105,7 @@ public class VentanaCampañaAlta extends HorizontalLayout implements View {
 		
 		
 		HorizontalLayout contenedorTags = new HorizontalLayout();
-		izquierda.addComponent(contenedorTags);
+		derecha.addComponent(contenedorTags);
 		tagServices.agregarTagsAlCheckbox(contenedorTags);
 		
 		
@@ -141,7 +141,7 @@ public class VentanaCampañaAlta extends HorizontalLayout implements View {
 						tagServices.getSeleccionados(), duracion, periodicidad, destinatarios);
 			}
 		});
-		addComponent(guardarCampaña);
+		derecha.addComponent(guardarCampaña);
 
 	}
 
