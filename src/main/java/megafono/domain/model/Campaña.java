@@ -1,7 +1,6 @@
 package megafono.domain.model;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -17,7 +16,7 @@ public class Campaña implements Serializable {
 	private ArrayList<AccionPublicitariaPersonalizada> accionesPublicitarias;
 	private Date fechaInicio;
 	private Date fechaFin;
-	private static SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+//	private static SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
 	private Duracion duracion;
 	private Periodicidad periodicidad;
 	private String nombre;
@@ -37,7 +36,8 @@ public class Campaña implements Serializable {
 		this.nombre = "";
 		this.mensaje = "";
 		this.fechaInicio = fechaInicio;
-		this.fechaFin = new Date(); //TODO - calcular la fecha fin en base a la fecha de inicio mas la duracion.
+		this.fechaFin = new Date(); // TODO - calcular la fecha fin en base a la
+									// fecha de inicio mas la duracion.
 	}
 
 	public ArrayList<AccionPublicitariaPersonalizada> getAccionesPublicitarias() {
@@ -95,12 +95,20 @@ public class Campaña implements Serializable {
 	public ArrayList<Tag> getTags() {
 		return tags;
 	}
-	
-	public boolean estaVigente(){
+
+	public Date getFechaInicio() {
+		return fechaInicio;
+	}
+
+	public Date getFechaFin() {
+		return fechaFin;
+	}
+
+	public boolean estaVigente() {
 		Date hoy = new Date();
-		if(this.fechaFin.after(hoy)){
+		if (this.fechaFin.after(hoy)) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}

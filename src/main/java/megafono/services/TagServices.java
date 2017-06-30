@@ -2,7 +2,9 @@ package megafono.services;
 
 import java.util.ArrayList;
 
+import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.Tree;
@@ -97,6 +99,14 @@ public class TagServices {
 		this.borrar(this.obtenerTag(aBorrar));
 		Notification.show("Se borr� el tag: " + aBorrar, Type.TRAY_NOTIFICATION);
 		this.procesarArbol(arbol, cb);
+	}
+
+	public void agregarTagsAlCheckbox(HorizontalLayout contenedorTags) {
+		ArrayList<Tag> tags = this.obtenerTags();
+		for(Tag t : tags){
+			CheckBox tag = new CheckBox(t.getNombre());
+			contenedorTags.addComponent(tag);
+		}		
 	}
 
 }
