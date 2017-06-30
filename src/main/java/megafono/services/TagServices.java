@@ -109,4 +109,9 @@ public class TagServices {
 		}		
 	}
 
+	public Object getSeleccionados() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

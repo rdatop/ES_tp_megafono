@@ -39,6 +39,21 @@ public class Campaña implements Serializable {
 		this.fechaFin = new Date(); // TODO - calcular la fecha fin en base a la
 									// fecha de inicio mas la duracion.
 	}
+	
+	public Campaña(Cliente cliente, String nombre, String mensaje, Date fechaInicio, ArrayList<Tag> tags,
+			ArrayList<Destinatario> destinatarios, Duracion duracion, Periodicidad periodicidad) {
+		this.generador = cliente;
+		this.tags = tags;
+		this.accionesPublicitarias = new ArrayList<AccionPublicitariaPersonalizada>();
+		this.destinatarios = destinatarios;
+		this.duracion = duracion;
+		this.periodicidad = periodicidad;
+		this.nombre = nombre;
+		this.mensaje = mensaje;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = new Date(); // TODO - calcular la fecha fin en base a la
+									// fecha de inicio mas la duracion.
+	}
 
 	public ArrayList<AccionPublicitariaPersonalizada> getAccionesPublicitarias() {
 		return accionesPublicitarias;

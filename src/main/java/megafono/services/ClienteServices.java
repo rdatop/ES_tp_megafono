@@ -59,4 +59,8 @@ public class ClienteServices {
 
 	}
 
+	public Cliente getCliente() {
+		return clienteDAO.obtenerCliente();
+	}
+
 }
