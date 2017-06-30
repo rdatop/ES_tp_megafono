@@ -1,6 +1,8 @@
 package megafono.domain.model;
 
-public class Destinatario {
+import java.io.Serializable;
+
+public class Destinatario implements Serializable {
 
 }
 

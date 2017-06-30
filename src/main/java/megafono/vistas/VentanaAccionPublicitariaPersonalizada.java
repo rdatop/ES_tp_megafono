@@ -18,7 +18,7 @@ public class VentanaAccionPublicitariaPersonalizada extends Window {
 	private static final long serialVersionUID = 1L;
 
 	public VentanaAccionPublicitariaPersonalizada() {
-		super("Crear accion publicitaria personalizada");
+		setSizeFull();
 		center();
 		
 		VerticalLayout vl = new VerticalLayout();

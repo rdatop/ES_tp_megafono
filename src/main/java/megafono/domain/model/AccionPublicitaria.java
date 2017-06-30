@@ -1,6 +1,8 @@
 package megafono.domain.model;
 
-public abstract class  AccionPublicitaria {
+import java.io.Serializable;
+
+public abstract class  AccionPublicitaria implements Serializable {
 	
 	public abstract void ejecutar();
 

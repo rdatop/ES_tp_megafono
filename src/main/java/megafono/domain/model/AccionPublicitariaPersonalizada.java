@@ -1,5 +1,7 @@
 package megafono.domain.model;
 
-public class AccionPublicitariaPersonalizada {
+import java.io.Serializable;
+
+public class AccionPublicitariaPersonalizada implements Serializable{
 
 }

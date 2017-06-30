@@ -2,7 +2,7 @@ package megafono.domain.model;
 
 import java.util.ArrayList;
 
-public enum Duracion {
+public enum Duracion{
 
 	Hora, Semana, Mes, Bimestre, Semestre;
 
