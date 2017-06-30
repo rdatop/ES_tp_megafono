@@ -14,10 +14,12 @@ import megafono.domain.model.Tag;
 
 public class TagDAONeodatis extends DAONeodatis<Tag> implements TagDAO {
 
+	private static final String bd = "tags";
+
 	public void guardar(Tag tag) {
 		ODB odb = null;
 		try {
-			odb = ODBFactory.open("tags");
+			odb = ODBFactory.open(bd);
 			odb.store(tag);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -31,7 +33,7 @@ public class TagDAONeodatis extends DAONeodatis<Tag> implements TagDAO {
 	public void borrar(Tag tag) {
 		ODB odb = null;
 		try {
-			odb = ODBFactory.open("tags");
+			odb = ODBFactory.open(bd);
 			IQuery query = new CriteriaQuery(Tag.class, Where.like("nombre", tag.getNombre()));
 			Objects<Tag> tags = odb.getObjects(query);
 			odb.delete(tags.getFirst());
@@ -48,7 +50,7 @@ public class TagDAONeodatis extends DAONeodatis<Tag> implements TagDAO {
 		ODB odb = null;
 		ArrayList<Tag> guardados = new ArrayList<Tag>();
 		try {
-			odb = ODBFactory.open("tags");
+			odb = ODBFactory.open(bd);
 			Objects<Tag> tags = odb.getObjects(Tag.class);
 			for (Tag t : tags) {
 				guardados.add(t);
@@ -67,7 +69,7 @@ public class TagDAONeodatis extends DAONeodatis<Tag> implements TagDAO {
 		ODB odb = null;
 		Tag ret = null;
 		try {
-			odb = ODBFactory.open("tags");
+			odb = ODBFactory.open(bd);
 			IQuery query = new CriteriaQuery(Tag.class, Where.like("nombre", nombre));
 			Objects<Tag> tags = odb.getObjects(query);
 			ret = tags.getFirst();

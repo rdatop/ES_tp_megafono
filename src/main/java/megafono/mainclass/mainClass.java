@@ -1,7 +1,8 @@
 package megafono.mainclass;
 
-import megafono.domain.model.Cliente;
-import megafono.services.ClienteServices;
+import megafono.domain.model.Campania;
+import megafono.services.CamapaniaServices;
+import megafono.services.EmailSenderService;
 
 public class mainClass {
 
@@ -24,10 +25,18 @@ public class mainClass {
 //		}
 //	}
 	
+//	public static void main(String[] args) {
+//		Cliente cliente = new Cliente("prueba", "prueba1", "123456", "ezzemontoya@gmail.com");
+//		ClienteServices cs = ClienteServices.getClienteServices();
+//		cs.guardar(cliente);
+//	}
+	
 	public static void main(String[] args) {
-		Cliente cliente = new Cliente("prueba", "prueba1", "123456", "ezzemontoya@gmail.com");
-		ClienteServices cs = ClienteServices.getClienteServices();
-		cs.guardar(cliente);
+		CamapaniaServices cs = CamapaniaServices.getCampañaServices();
+		for( Campania c : cs.getCamapañas()){
+			EmailSenderService meilTx= new EmailSenderService();
+			meilTx.enviarEmail(c.getDestinatarios(), c.getMensaje(), c.getNombre(), "Envio eMails.zipp");	
+		}
 	}
 
 }

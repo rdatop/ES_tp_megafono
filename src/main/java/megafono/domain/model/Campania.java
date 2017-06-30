@@ -21,7 +21,8 @@ public class Campania implements Serializable {
 	private Periodicidad periodicidad;
 	private String nombre;
 	private String mensaje;
-	private ArrayList<Destinatario> destinatarios;
+//	private ArrayList<Destinatario> destinatarios;
+	private String destinatario;
 
 	// TODO - falta agregar que guarde la imagen junto con el mensaje de la
 	// camapaña para enviarlo en la accion publicitaria
@@ -30,7 +31,8 @@ public class Campania implements Serializable {
 		this.generador = cliente;
 		this.tags = new ArrayList<Tag>();
 		this.accionesPublicitarias = new ArrayList<AccionPublicitariaPersonalizada>();
-		this.destinatarios = new ArrayList<Destinatario>();
+//		this.destinatarios = new ArrayList<Destinatario>();
+		this.destinatario="";
 		this.duracion = null;
 		this.periodicidad = null;
 		this.nombre = "";
@@ -41,11 +43,11 @@ public class Campania implements Serializable {
 	}
 	
 	public Campania(Cliente cliente, String nombre, String mensaje, Date fechaInicio, ArrayList<Tag> tags,
-			ArrayList<Destinatario> destinatarios, Duracion duracion, Periodicidad periodicidad) {
+			String destinatarios, Duracion duracion, Periodicidad periodicidad) {
 		this.generador = cliente;
 		this.tags = tags;
 		this.accionesPublicitarias = new ArrayList<AccionPublicitariaPersonalizada>();
-		this.destinatarios = destinatarios;
+		this.destinatario = destinatarios;
 		this.duracion = duracion;
 		this.periodicidad = periodicidad;
 		this.nombre = nombre;
@@ -95,13 +97,13 @@ public class Campania implements Serializable {
 		this.mensaje = mensaje;
 	}
 
-	public ArrayList<Destinatario> getDestinatarios() {
-		return destinatarios;
+	public String getDestinatarios() {
+		return destinatario.toString();
 	}
 
-	public void setDestinatarios(ArrayList<Destinatario> destinatarios) {
-		this.destinatarios = destinatarios;
-	}
+//	public void setDestinatarios(ArrayList<Destinatario> destinatarios) {
+//		this.destinatario = destinatarios;
+//	}
 
 	public Cliente getGenerador() {
 		return generador;
@@ -127,5 +129,10 @@ public class Campania implements Serializable {
 			return false;
 		}
 	}
+
+	public void ejecutar() {
+				
+	}
+
 
 }

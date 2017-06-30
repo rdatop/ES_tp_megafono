@@ -11,7 +11,7 @@ import megafono.dao.ClienteDAO;
 import megafono.domain.model.Cliente;
 
 public class ClienteDAONeodatis extends DAONeodatis<Cliente> implements ClienteDAO {
-	private String bd = "clientes";
+	private static final String bd = "clientes";
 
 	public void guardar(Cliente cliente) {
 		ODB odb = null;

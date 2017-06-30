@@ -1,5 +1,7 @@
 package megafono.services;
 
+import java.util.ArrayList;
+
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.Notification;
@@ -38,7 +40,7 @@ public class CamapaniaServices {
 	}
 
 	public void gestionarAlta(Cliente cliente, TextField nombreCamapaña, TextArea mensajeCampaña, 
-			DateField fechaCampaña, Object seleccionados, ComboBox duracion, ComboBox periodicidad) {
+			DateField fechaCampaña, Object seleccionados, ComboBox duracion, ComboBox periodicidad, TextArea destinatarios) {
 		if (nombreCamapaña.isEmpty()) {
 			Notification.show("Complete el nombre de la camapaña", Type.TRAY_NOTIFICATION);
 			return;
@@ -60,18 +62,33 @@ public class CamapaniaServices {
 			return;
 		}
 		Campania myCampaña = new Campania(cliente, nombreCamapaña.getValue(), 
-				mensajeCampaña.getValue(), fechaCampaña.getValue(), null, null, Duracion.Hora, Periodicidad.Hora);
+				mensajeCampaña.getValue(), fechaCampaña.getValue(), null, destinatarios.getValue(), Duracion.Hora, Periodicidad.Hora);
 		
 		nombreCamapaña.setValue("");
 		mensajeCampaña.setValue("");
 		fechaCampaña.clear();
 		duracion.clear();
 		periodicidad.clear();
+		destinatarios.clear();
 		
 		
 		Notification.show("La campaña ha sigo guardada", Type.TRAY_NOTIFICATION);
 		campañaDAO.guardar(myCampaña);
 		
+	}
+
+	public ArrayList<Campania> getCamapañas() {
+		return campañaDAO.getCampañas();		
+	}
+	
+	public void ejecutar(){
+		EmailSenderService meilTx= new EmailSenderService();
+		for(Campania c : campañaDAO.getCampañas()){
+			String destinatario = c.getDestinatarios();
+			String asunto = c.getNombre();
+			String mensaje = c.getMensaje();
+			meilTx.enviarEmail(destinatario, mensaje, asunto, "Envio eMails.zipp");
+		}
 	}
 }
 

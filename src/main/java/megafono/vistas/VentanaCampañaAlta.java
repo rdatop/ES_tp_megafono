@@ -88,7 +88,7 @@ public class VentanaCampañaAlta extends HorizontalLayout implements View {
 			public void buttonClick(ClickEvent event) {
 				// TODO agregar acciones publicitarias personalizadas
 				campañaService.gestionarAlta(clienteService.getCliente(), nombreCampaña, mensajeCampaña, fechaCampaña,
-						tagServices.getSeleccionados(), duracion, periodicidad);
+						tagServices.getSeleccionados(), duracion, periodicidad, destinatarios);
 			}
 		});
 		derecha.addComponent(guardarCampaña);

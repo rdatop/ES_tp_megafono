@@ -1,5 +1,7 @@
 package megafono.dao.implementacion;
 
+import java.util.ArrayList;
+
 import org.neodatis.odb.ODB;
 import org.neodatis.odb.ODBFactory;
 import org.neodatis.odb.Objects;
@@ -11,12 +13,14 @@ import megafono.dao.CampaniaDAO;
 import megafono.domain.model.Campania;
 import megafono.domain.model.Cliente;
 
-public class CampaniaDAONeodatis extends DAONeodatis<Campania> implements CampaniaDAO  {
+public class CampaniaDAONeodatis extends DAONeodatis<Campania> implements CampaniaDAO {
+
+	private static final String bd = "campañas";
 
 	public void guardar(Campania campaña) {
 		ODB odb = null;
 		try {
-			odb = ODBFactory.open("campañas");
+			odb = ODBFactory.open(bd);
 			odb.store(campaña);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -26,11 +30,11 @@ public class CampaniaDAONeodatis extends DAONeodatis<Campania> implements Campan
 			}
 		}
 	}
-	
+
 	public void borrar(Campania campaña) {
 		ODB odb = null;
 		try {
-			odb = ODBFactory.open("campaña");
+			odb = ODBFactory.open(bd);
 			IQuery query = new CriteriaQuery(Cliente.class, Where.like("nombre", campaña.getNombre()));
 			Objects<Cliente> clientes = odb.getObjects(query);
 			odb.delete(clientes.getFirst());
@@ -41,5 +45,25 @@ public class CampaniaDAONeodatis extends DAONeodatis<Campania> implements Campan
 				odb.close();
 			}
 		}
+	}
+
+	public ArrayList<Campania> getCampañas() {
+		ArrayList<Campania> ret = new ArrayList<Campania>();
+		ODB odb = null;
+		try {
+			odb = ODBFactory.open(bd);
+			IQuery query = new CriteriaQuery(Campania.class);
+			Objects<Campania> campañas = odb.getObjects(query);
+			for (Campania c : campañas) {
+				ret.add(c);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (odb != null) {
+				odb.close();
+			}
+		}
+		return ret;
 	}
 }
