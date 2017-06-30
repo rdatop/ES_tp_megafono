@@ -2,6 +2,7 @@ package megafono.dao.implementacion;
 
 import org.neodatis.odb.ODB;
 import org.neodatis.odb.ODBFactory;
+import org.neodatis.odb.Objects;
 import org.neodatis.odb.core.query.IQuery;
 import org.neodatis.odb.core.query.criteria.Where;
 import org.neodatis.odb.impl.core.query.criteria.CriteriaQuery;
@@ -31,8 +32,8 @@ public class CampañaDAONeodatis extends DAONeodatis<Campaña> implements Campa�
 		try {
 			odb = ODBFactory.open("campaña");
 			IQuery query = new CriteriaQuery(Cliente.class, Where.like("nombre", campaña.getNombre()));
-//			Objects<Cliente> clientes = odb.getObjects(query);
-//			odb.delete(clientes.getFirsts());
+			Objects<Cliente> clientes = odb.getObjects(query);
+			odb.delete(clientes.getFirst());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
