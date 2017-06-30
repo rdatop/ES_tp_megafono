@@ -1,6 +1,8 @@
 package megafono.services;
 
+import java.util.ArrayList;
 import java.util.Properties;
+
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
 import javax.mail.BodyPart;
@@ -19,6 +21,14 @@ public class EmailSenderService {
 
 	// Envia un email a partir de una propiertie 
 	// de configuracion con y verificacion de envio
+	
+	public boolean enviarMultiMail(ArrayList<String> destinatarios,  String mensaje, String asunto, String archivo){
+		for(String s : destinatarios){
+			return this.enviarEmail(s, mensaje, asunto, archivo);
+		}
+		return false;
+	}
+	
 	public boolean enviarEmail(String destinatario, String mensaje, String asunto, String archivo) {
 		boolean enviado = false;
 		try {
@@ -53,7 +63,7 @@ public class EmailSenderService {
 			enviado = true;
 
 			// TODO verificacion consola (borrarlo)
-			System.out.print("mensaje enviado a " +destinatario+" "+ enviado);
+			System.out.print("\nMensaje enviado a " +destinatario+" "+ enviado);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

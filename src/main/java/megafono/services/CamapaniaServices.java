@@ -40,7 +40,7 @@ public class CamapaniaServices {
 	}
 
 	public void gestionarAlta(Cliente cliente, TextField nombreCamapaña, TextArea mensajeCampaña, 
-			DateField fechaCampaña, Object seleccionados, ComboBox duracion, ComboBox periodicidad, TextArea destinatarios) {
+			DateField fechaCampaña, Object seleccionados, ComboBox duracion, ComboBox periodicidad, ArrayList<String> destinatarios) {
 		if (nombreCamapaña.isEmpty()) {
 			Notification.show("Complete el nombre de la camapaña", Type.TRAY_NOTIFICATION);
 			return;
@@ -62,7 +62,7 @@ public class CamapaniaServices {
 			return;
 		}
 		Campania myCampaña = new Campania(cliente, nombreCamapaña.getValue(), 
-				mensajeCampaña.getValue(), fechaCampaña.getValue(), null, destinatarios.getValue(), Duracion.Hora, Periodicidad.Hora);
+				mensajeCampaña.getValue(), fechaCampaña.getValue(), null, destinatarios, Duracion.Hora, Periodicidad.Hora);
 		
 		nombreCamapaña.setValue("");
 		mensajeCampaña.setValue("");
@@ -84,10 +84,10 @@ public class CamapaniaServices {
 	public void ejecutar(){
 		EmailSenderService meilTx= new EmailSenderService();
 		for(Campania c : campañaDAO.getCampañas()){
-			String destinatario = c.getDestinatarios();
+			ArrayList<String> destinatario = c.getDestinatarios();
 			String asunto = c.getNombre();
 			String mensaje = c.getMensaje();
-			meilTx.enviarEmail(destinatario, mensaje, asunto, "Envio eMails.zipp");
+			meilTx.enviarMultiMail(destinatario, mensaje, asunto, "Envio eMails.zipp");
 		}
 	}
 }

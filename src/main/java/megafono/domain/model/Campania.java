@@ -16,13 +16,14 @@ public class Campania implements Serializable {
 	private ArrayList<AccionPublicitariaPersonalizada> accionesPublicitarias;
 	private Date fechaInicio;
 	private Date fechaFin;
-//	private static SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+	// private static SimpleDateFormat formato = new
+	// SimpleDateFormat("dd-MM-yyyy");
 	private Duracion duracion;
 	private Periodicidad periodicidad;
 	private String nombre;
 	private String mensaje;
-//	private ArrayList<Destinatario> destinatarios;
-	private String destinatario;
+	private ArrayList<String> destinatarios;
+	// private String destinatario;
 
 	// TODO - falta agregar que guarde la imagen junto con el mensaje de la
 	// camapaña para enviarlo en la accion publicitaria
@@ -31,8 +32,8 @@ public class Campania implements Serializable {
 		this.generador = cliente;
 		this.tags = new ArrayList<Tag>();
 		this.accionesPublicitarias = new ArrayList<AccionPublicitariaPersonalizada>();
-//		this.destinatarios = new ArrayList<Destinatario>();
-		this.destinatario="";
+		this.destinatarios = new ArrayList<String>();
+		// this.destinatario="";
 		this.duracion = null;
 		this.periodicidad = null;
 		this.nombre = "";
@@ -41,13 +42,13 @@ public class Campania implements Serializable {
 		this.fechaFin = new Date(); // TODO - calcular la fecha fin en base a la
 									// fecha de inicio mas la duracion.
 	}
-	
+
 	public Campania(Cliente cliente, String nombre, String mensaje, Date fechaInicio, ArrayList<Tag> tags,
-			String destinatarios, Duracion duracion, Periodicidad periodicidad) {
+			ArrayList<String> destinatarios, Duracion duracion, Periodicidad periodicidad) {
 		this.generador = cliente;
 		this.tags = tags;
 		this.accionesPublicitarias = new ArrayList<AccionPublicitariaPersonalizada>();
-		this.destinatario = destinatarios;
+		this.destinatarios = destinatarios;
 		this.duracion = duracion;
 		this.periodicidad = periodicidad;
 		this.nombre = nombre;
@@ -97,13 +98,9 @@ public class Campania implements Serializable {
 		this.mensaje = mensaje;
 	}
 
-	public String getDestinatarios() {
-		return destinatario.toString();
+	public ArrayList<String> getDestinatarios() {
+		return this.destinatarios;
 	}
-
-//	public void setDestinatarios(ArrayList<Destinatario> destinatarios) {
-//		this.destinatario = destinatarios;
-//	}
 
 	public Cliente getGenerador() {
 		return generador;
@@ -129,10 +126,5 @@ public class Campania implements Serializable {
 			return false;
 		}
 	}
-
-	public void ejecutar() {
-				
-	}
-
 
 }

@@ -1,5 +1,7 @@
 package megafono.mainclass;
 
+import java.util.ArrayList;
+
 import megafono.domain.model.Campania;
 import megafono.services.CamapaniaServices;
 import megafono.services.EmailSenderService;
@@ -35,14 +37,14 @@ public class mainClass {
 	public static void main(String[] args) {
 		CamapaniaServices cs = CamapaniaServices.getCampañaServices();
 		for (Campania c : cs.getCamapañas()) {
-			String destinatario = c.getDestinatarios();
+			ArrayList<String> destinatario = c.getDestinatarios();
 			String asunto = c.getNombre();
 			String texto = c.getMensaje();
 			String archivo = "Envio eMails.zipp";
 
 			// envio de un solo destinatario
 			EmailSenderService meilTx = new EmailSenderService();
-			meilTx.enviarEmail(destinatario, texto, asunto, archivo);
+			meilTx.enviarMultiMail(destinatario, texto, asunto, archivo);
 		}
 
 	}

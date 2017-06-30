@@ -1,5 +1,7 @@
 package megafono.vistas;
 
+import java.util.ArrayList;
+
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.FontAwesome;
@@ -31,6 +33,7 @@ public class VentanaCampañaAlta extends HorizontalLayout implements View {
 	private CamapaniaServices campañaService = CamapaniaServices.getCampañaServices();
 	private TagServices tagServices = TagServices.getTagService();
 	private ClienteServices clienteService = ClienteServices.getClienteServices();
+	private ArrayList<String> destinatarios = new ArrayList<String>();
 
 	public VentanaCampañaAlta() {
 		setSizeFull();
@@ -71,11 +74,22 @@ public class VentanaCampañaAlta extends HorizontalLayout implements View {
 		mensajeCampaña.setRequired(true);
 		derecha.addComponent(mensajeCampaña);
 
-		final TextArea destinatarios = new TextArea("Ingrese los mails de los destinatarios, separados por ';' ");
-		destinatarios.setIcon(FontAwesome.USERS);
-		destinatarios.setRequired(true);
-		derecha.addComponent(destinatarios);
+		final Button agregarDestinatarios = new Button("Agregar Destinatarios");
+		agregarDestinatarios.setIcon(FontAwesome.USERS);
+		agregarDestinatarios.addClickListener(new ClickListener() {
+			
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().addWindow(new VentanaAgregarDestinatarios(destinatarios));
+			}
+		});
+		derecha.addComponent(agregarDestinatarios);
+		
 		Button guardarCampaña = new Button("Guardar");
 		guardarCampaña.setIcon(FontAwesome.SAVE);
 		guardarCampaña.addClickListener(new Button.ClickListener() {
